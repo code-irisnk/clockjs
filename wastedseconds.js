@@ -1,4 +1,4 @@
-var counter = 0;
+let counter = 0;
 
 function formatTime(seconds) {
     const years = Math.floor(seconds / (365 * 24 * 60 * 60));
@@ -26,7 +26,7 @@ function formatTime(seconds) {
     return result.trim();
 }
 
-var callback = function () {
+const callback = function () {
     setTimeout(() => {
         counter++;
         $("#wasted").text(`You've wasted ${formatTime(counter)} of your life with this page open.`);
