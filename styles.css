@@ -1,0 +1,76 @@
+body {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px;
+}
+
+.card {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: #1e1e1e;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #6c757d;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white; 
+    font-weight: bold;
+    border: 2px solid #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
+}
+
+button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+#clock {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#timer, #countdown {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.extra-clock {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.clock-input {
+    display: flex;
+    gap: 10px;
+}

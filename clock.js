@@ -1,4 +1,4 @@
-// Set the time to the current time
+
 function setTime() {
     const time = new Date();
     let hours = time.getHours();
@@ -13,9 +13,8 @@ function setTime() {
     document.getElementById('clock').innerText = hours + ':' + minutes + ':' + seconds + '.' + milliseconds;
     document.getElementById('ampm').innerText = ampm;
 }
+document.addEventListener('DOMContentLoaded', () => {
+    setInterval(setTime, 1000);
+    setTime();
+});
 
-// Set the time every second
-setInterval(setTime, 1000);
-
-// Set the time immediately
-setTime();
