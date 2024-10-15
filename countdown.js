@@ -3,7 +3,7 @@ let countdownInterval;
 function startCountdown() {
     const userDate = document.getElementById('countdownPicker').value;
     const targetDate = new Date(userDate).getTime();
-    
+
     if (!targetDate) {
         alert("Please pick a valid date and time!");
         return;

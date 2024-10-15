@@ -8,71 +8,73 @@
 </head>
 
 <body>
-    <div>
-        Impostazione di un contatore con l'uso di <strong>setTimeout</strong>
-        : <span id="target"></span>
-    </div>
-    <div>Impostazione di un orologio aggiornato ogni 100ms (circa)
-        con l'uso di <strong>setInterval</strong>: <span id="orologio"></span>
-    </div>
-    <button id="blocca">Blocca orologio</button>
-    <button id="sblocca">Sblocca orologio</button>
-    <script>
-        // Funzione per l'acquisizione e la formattazione dell'ora attuale
-        function formattaOrario() {
-            // Lettura dall'orologio di sistema, inizializzazione di un oggetto Date
-            const oraAttuale = new Date();
-            const ore = oraAttuale.getHours();
-            const minuti = oraAttuale.getMinutes();
-            const secondi = oraAttuale.getSeconds();
-            const millisecondi = oraAttuale.getMilliseconds();
-            // Formattazione dell'orario attuale
-            return ore + ":" + (minuti < 10 ? "0" : "")
-                + minuti + ":" + (secondi < 10 ? "0" : "")
-                + secondi + "::" + millisecondi;
-        }
+<div>
+    Impostazione di un contatore con l'uso di <strong>setTimeout</strong>
+    : <span id="target"></span>
+</div>
+<div>Impostazione di un orologio aggiornato ogni 100ms (circa)
+    con l'uso di <strong>setInterval</strong>: <span id="orologio"></span>
+</div>
+<button id="blocca">Blocca orologio</button>
+<button id="sblocca">Sblocca orologio</button>
+<script>
+    // Funzione per l'acquisizione e la formattazione dell'ora attuale
+    function formattaOrario() {
+        // Lettura dall'orologio di sistema, inizializzazione di un oggetto Date
+        const oraAttuale = new Date();
+        const ore = oraAttuale.getHours();
+        const minuti = oraAttuale.getMinutes();
+        const secondi = oraAttuale.getSeconds();
+        const millisecondi = oraAttuale.getMilliseconds();
+        // Formattazione dell'orario attuale
+        return ore + ":" + (minuti < 10 ? "0" : "")
+            + minuti + ":" + (secondi < 10 ? "0" : "")
+            + secondi + "::" + millisecondi;
+    }
 
-        let counter = 0;
-        let bloccato = false;
-        // Definizione e lancio di una funzione di callback "auto-chiamante" per
-        // l'incremento di un contatore (ogni secondo circa)
-        const callback = function () {
-            setTimeout(() => {
-                $("#target").text("contatore=" + (++counter));
-                if (!bloccato) {
-                    callback();
-                }
-            }, 1000);
-        };
-        callback();
-        // Funzione per aggiornare l'orologio
-        function aggiornaOrologio() {
-            const orologioElement = document.getElementById("orologio"); // 1
-            orologioElement.textContent = formattaOrario(); // 2
-            // con jQuery al posto delle due righe precedenti
-            // avremmo potuto scrivere:
-            // $("#orologio").text(formattaOrario());
-        }
-        // Imposta un intervallo per aggiornare l'orologio ogni secondo
-        // (100 millisecondi)
-        let intervallo = setInterval(aggiornaOrologio, 100);
-        // Registra un gestore del click sul pulsante
-        $("#blocca").click(function () {
-            // Blocca l'orologio
+    let counter = 0;
+    let bloccato = false;
+    // Definizione e lancio di una funzione di callback "auto-chiamante" per
+    // l'incremento di un contatore (ogni secondo circa)
+    const callback = function () {
+        setTimeout(() => {
+            $("#target").text("contatore=" + (++counter));
             if (!bloccato) {
-                clearInterval(intervallo);
-                bloccato = true;
-            }
-        });
-        $("#sblocca").click(function () {
-            // Sblocca l'orologio
-            if (bloccato) {
-                intervallo = setInterval(aggiornaOrologio, 100);
-                bloccato = false;
                 callback();
             }
-        });
-    </script>
+        }, 1000);
+    };
+    callback();
+
+    // Funzione per aggiornare l'orologio
+    function aggiornaOrologio() {
+        const orologioElement = document.getElementById("orologio"); // 1
+        orologioElement.textContent = formattaOrario(); // 2
+        // con jQuery al posto delle due righe precedenti
+        // avremmo potuto scrivere:
+        // $("#orologio").text(formattaOrario());
+    }
+
+    // Imposta un intervallo per aggiornare l'orologio ogni secondo
+    // (100 millisecondi)
+    let intervallo = setInterval(aggiornaOrologio, 100);
+    // Registra un gestore del click sul pulsante
+    $("#blocca").click(function () {
+        // Blocca l'orologio
+        if (!bloccato) {
+            clearInterval(intervallo);
+            bloccato = true;
+        }
+    });
+    $("#sblocca").click(function () {
+        // Sblocca l'orologio
+        if (bloccato) {
+            intervallo = setInterval(aggiornaOrologio, 100);
+            bloccato = false;
+            callback();
+        }
+    });
+</script>
 </body>
 
 </html>

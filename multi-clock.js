@@ -1,4 +1,4 @@
-let clockCount = 0; 
+let clockCount = 0;
 const maxClocks = 3;
 const clocks = [];
 
@@ -44,12 +44,11 @@ function addClock() {
     `;
     document.getElementById('extra-clocks').appendChild(clockElement);
 
-    clocks.push({ id: clockId, timezone });
+    clocks.push({id: clockId, timezone});
     clockCount++;
 
     setInterval(() => {
-        const now = new Date().toLocaleString("en-US", { timeZone: timezone });
-        document.getElementById(`${clockId}-time`).innerText = now;
+        document.getElementById(`${clockId}-time`).innerText = new Date().toLocaleString("en-US", {timeZone: timezone});
     }, 1000);
 }
 

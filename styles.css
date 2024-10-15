@@ -9,42 +9,41 @@ body {
 }
 
 .container {
-    max-width: 900px; /* Increase width for larger screens */
-    margin: 20px auto; /* Centering the container */
-    padding: 15px; /* Adding padding for better appearance */
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 15px;
 }
 
 .card {
     padding: 20px;
-    margin: 10px 0; /* Reduced margin for smaller screens */
+    margin: 10px 0;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
     background-color: #1e1e1e;
-    display: flex; /* Make the card a flex container */
-    flex-wrap: wrap; /* Allow items to wrap onto the next line */
-    justify-content: center; /* Center items when there's extra space */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .inner-card-style {
-    display: flex; /* Make this a flex container too */
-    flex-wrap: wrap; /* Allow wrapping */
-    justify-content: center; /* Center items when space allows */
-    gap: 10px; /* Space between elements */
-    width: 100%; /* Ensure it takes full width */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
 }
 
 input, select {
-    flex: 1; /* Allow inputs and selects to grow and take available space */
-    min-width: 150px; /* Optional: set a minimum width to maintain usability */
+    flex: 1;
+    min-width: 150px;
 }
 
 @media (max-width: 576px) {
     .inner-card-style {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+        flex-direction: column;
     }
 }
-
 
 
 input:focus, select:focus {
@@ -61,7 +60,7 @@ button {
     border-radius: 5px;
     background-color: #212529 !important;
     color: #ffffff;
-    transition: background-color 0.3s ease, border-color 0.3s ease; 
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 button:hover {
@@ -81,33 +80,27 @@ button:hover {
     font-weight: bold;
 }
 
-.extra-clock {
-    margin-top: 10px;
-    font-size: 1.2rem;
-}
-
 .inner-card-style {
     display: flex;
     gap: 10px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 576px) {
     #clock {
-        font-size: 2.5rem; /* Adjusted for smaller screens */
+        font-size: 2.5rem;
     }
 
     #timer, #countdown {
-        font-size: 1.25rem; /* Adjusted for smaller screens */
+        font-size: 1.25rem;
     }
 
     .card {
-        padding: 15px; /* Reduced padding for smaller screens */
+        padding: 15px;
     }
 }
 
 @media (min-width: 577px) {
     .container {
-        padding: 30px; /* Increased padding for larger screens */
+        padding: 30px;
     }
 }

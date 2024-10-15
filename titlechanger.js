@@ -1,4 +1,3 @@
-
 function setTitle() {
     document.title = new Date().toLocaleTimeString();
 }
