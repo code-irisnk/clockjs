@@ -10,7 +10,7 @@ function setTime() {
     hours = hours ? hours : 12;
     minutes = minutes < 10 ? '0' + minutes : minutes;
     seconds = seconds < 10 ? '0' + seconds : seconds;
-    document.getElementById('clock').innerText = hours + ':' + minutes + ':' + seconds + '.' + milliseconds;
+    document.getElementById('clock').innerText = hours + ':' + minutes;
     document.getElementById('ampm').innerText = ampm;
 }
 document.addEventListener('DOMContentLoaded', () => {

@@ -36,7 +36,7 @@ function addClock() {
     clockElement.className = 'extra-clock';
     clockElement.id = clockId;
     clockElement.innerHTML = `
-        <div class="card bg-secondary text-white">
+        <div class="card text-white">
             <span>Timezone: ${timezone}</span><br>
             <span id="${clockId}-time"></span><br>
             <button class="btn btn-secondary" onclick="removeClock('${clockId}')">Remove</button>

@@ -9,29 +9,43 @@ body {
 }
 
 .container {
-    max-width: 600px;
-    margin: 20px;
+    max-width: 900px; /* Increase width for larger screens */
+    margin: 20px auto; /* Centering the container */
+    padding: 15px; /* Adding padding for better appearance */
 }
 
 .card {
     padding: 20px;
-    margin: 20px 0;
+    margin: 10px 0; /* Reduced margin for smaller screens */
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
     background-color: #1e1e1e;
+    display: flex; /* Make the card a flex container */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+    justify-content: center; /* Center items when there's extra space */
+}
+
+.inner-card-style {
+    display: flex; /* Make this a flex container too */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center items when space allows */
+    gap: 10px; /* Space between elements */
+    width: 100%; /* Ensure it takes full width */
 }
 
 input, select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #6c757d;
-    border-radius: 5px;
-    background-color: #2a2a2a;
-    color: #ffffff;
+    flex: 1; /* Allow inputs and selects to grow and take available space */
+    min-width: 150px; /* Optional: set a minimum width to maintain usability */
 }
+
+@media (max-width: 576px) {
+    .inner-card-style {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+}
+
+
 
 input:focus, select:focus {
     border-color: #007bff;
@@ -41,17 +55,19 @@ input:focus, select:focus {
 button {
     width: 100%;
     padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #495057 !important;
     border-radius: 5px;
-    background-color: #007bff;
-    color: white; 
-    font-weight: bold;
-    border: 2px solid #007bff;
+    background-color: #212529 !important;
+    color: #ffffff;
     transition: background-color 0.3s ease, border-color 0.3s ease; 
 }
 
 button:hover {
     background-color: #0056b3;
     border-color: #0056b3;
+    cursor: pointer;
 }
 
 #clock {
@@ -70,7 +86,28 @@ button:hover {
     font-size: 1.2rem;
 }
 
-.clock-input {
+.inner-card-style {
     display: flex;
     gap: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    #clock {
+        font-size: 2.5rem; /* Adjusted for smaller screens */
+    }
+
+    #timer, #countdown {
+        font-size: 1.25rem; /* Adjusted for smaller screens */
+    }
+
+    .card {
+        padding: 15px; /* Reduced padding for smaller screens */
+    }
+}
+
+@media (min-width: 577px) {
+    .container {
+        padding: 30px; /* Increased padding for larger screens */
+    }
 }
