@@ -11,7 +11,7 @@ function setTime() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    setInterval(setTime, 1000);
     setTime();
+    document.getElementById('clock_tz').innerText = Intl.DateTimeFormat().resolvedOptions().timeZone.split('/')[1];
+    setInterval(setTime, 1000);
 });
-
