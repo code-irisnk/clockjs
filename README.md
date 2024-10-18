@@ -1,5 +1,3 @@
-﻿# clockjs
+﻿# Power clock
 
-A simple clock in JS, JQuery (but I mostly used document.getElementById()), Bootstrap and CSS.
-
-index.html is my version of the clock.
+A simple clock in JS, JQuery (but mostly replaced by document.getElementById()), Bootstrap and CSS.
