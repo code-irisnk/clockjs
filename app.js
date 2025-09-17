@@ -192,13 +192,27 @@ function addClock() {
     const clockElement = document.createElement('div');
     clockElement.className = 'extra-clock';
     clockElement.id = clockId;
-    clockElement.innerHTML = `
-        <div class="card text-white">
-            <span>Timezone: ${timezone}</span><br>
-            <span id="${clockId}-time"></span><br>
-            <button class="btn btn-secondary" onclick="removeClock('${clockId}')">Remove</button>
-        </div>
-    `;
+    
+    const cardDiv = document.createElement('div');
+    cardDiv.className = 'card text-white';
+
+    const timezoneSpan = document.createElement('span');
+    timezoneSpan.textContent = 'Timezone: ' + timezone;
+    cardDiv.appendChild(timezoneSpan);
+    cardDiv.appendChild(document.createElement('br'));
+
+    const timeSpan = document.createElement('span');
+    timeSpan.id = `${clockId}-time`;
+    cardDiv.appendChild(timeSpan);
+    cardDiv.appendChild(document.createElement('br'));
+
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'btn btn-secondary';
+    removeBtn.textContent = 'Remove';
+    removeBtn.onclick = function() { removeClock(clockId); };
+    cardDiv.appendChild(removeBtn);
+
+    clockElement.appendChild(cardDiv);
     document.getElementById('extra-clocks').appendChild(clockElement);
 
     clocks.push({id: clockId, timezone});
